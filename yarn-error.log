@@ -1,0 +1,54 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-navigation
+
+PATH: 
+  C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files (x86)\EMF Visual 3.0\Computer\SGLLibs\bin\win32;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Users\smama\AppData\Local\Microsoft\WindowsApps;C:\Users\smama\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64\;C:\Users\smama\AppData\Roaming\npm;C:\Users\smama\AppData\Local\atom\bin;C:\Users\smama\AppData\Local\GitHubDesktop\bin;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\Git\cmd;C:\Users\smama\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  8.12.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\smama\AppData\Local\Yarn\Cache\v4\npm-require-main-filename-1.0.1-97f717b69d48784f5f526a6c5aa8ffdda055a4d1\node_modules\require-main-filename\.yarn-metadata.json: Unexpected token � in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1631:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:304:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:315:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "^31.0.2",
+      "react": "16.5.0",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
+    },
+    "devDependencies": {
+      "babel-preset-expo": "^5.0.0",
+      "eslint": "^5.3.0",
+      "eslint-config-airbnb": "^17.1.0",
+      "eslint-plugin-import": "^2.14.0",
+      "eslint-plugin-jsx-a11y": "^6.1.1",
+      "eslint-plugin-react": "^7.11.0"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
