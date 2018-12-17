@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, SectionList, Button } from 'react-native';
-import localeCode2 from '../data/localeCode.json';
+import localeCode from '../data/localeCode.json';
 import localeName from '../data/localeName.json';
 
 class LocaleScreen extends Component {
   onPressArea(item) {
     const { navigation } = this.props;
     navigation.navigate('Home', {
-      itemId: item,
+      locale: item,
     });
   }
 
@@ -22,9 +22,7 @@ class LocaleScreen extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
-
-    const itemId = navigation.getParam('itemId', 0);
+    // const locale = navigation.getParam('locale', 0);
 
     return (
       <SectionList
@@ -36,7 +34,7 @@ class LocaleScreen extends Component {
             <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{title}</Text>
           </View>
         )}
-        sections={localeCode2}
+        sections={localeCode}
         keyExtractor={(item, index) => item + index}
       />
     );

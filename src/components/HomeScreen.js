@@ -10,17 +10,19 @@ class HomeScreen extends Component {
   }
 
   render() {
-    // const { navigation } = this.props;
+    const { navigation } = this.props;
     // const loc = navigation.getParam('itemId', 'WLY01');
 
-    // <Button title="Choose locale" onPress={() => { navigation.navigate('Locale', { itemID: 20, }); }} />
+    const loc = navigation.getParam('locale', 'WLY02');
+    console.log(`HomeScreen: ${loc}`);
+
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
           <LunarPad />
         </View>
         <View style={{ flex: 1 }}>
-          <JakimPad />
+          <JakimPad navigation={navigation} />
         </View>
       </View>
     );

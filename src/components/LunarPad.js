@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, View, SafeAreaView } from 'react-native';
+/* eslint global-require: "off" */
 
 /*
 class MoonPic extends React.Component {
@@ -14,7 +15,7 @@ class MoonPic extends React.Component {
 */
 
 const MoonPic = () => (
-  <Image source={require('../../assets/wgmoon.jpg')} />
+  <Image style={{ width: 100, height: 50 }} source={require('../../assets/wgmoon.jpg')} />
 );
 
 const LunarPad = () => (
