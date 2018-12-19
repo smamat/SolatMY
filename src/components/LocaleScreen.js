@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, SectionList, Button } from 'react-native';
 import localeCode from '../data/localeCode.json';
 import localeName from '../data/localeName.json';
@@ -40,5 +41,9 @@ class LocaleScreen extends Component {
     );
   }
 }
+
+LocaleScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default LocaleScreen;
