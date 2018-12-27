@@ -4,11 +4,12 @@ import { Text, View, SectionList, Button } from 'react-native';
 import localeCode from '../data/localeCode.json';
 import localeName from '../data/localeName.json';
 
-class LocaleScreen extends Component {
+class KawasanScreen extends Component {
   onPressArea(item) {
     const { navigation } = this.props;
+    // console.log("KawasanScreen.onPressArea: " + item);
     navigation.navigate('Home', {
-      locale: item,
+      kawasan: item,
     });
   }
 
@@ -23,7 +24,9 @@ class LocaleScreen extends Component {
   }
 
   render() {
-    // const locale = navigation.getParam('locale', 0);
+    const { navigation } = this.props;
+    //console.log('KawasanScreen.navigation: ');
+    //console.log(navigation);
 
     return (
       <SectionList
@@ -42,8 +45,8 @@ class LocaleScreen extends Component {
   }
 }
 
-LocaleScreen.propTypes = {
+KawasanScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default LocaleScreen;
+export default KawasanScreen;

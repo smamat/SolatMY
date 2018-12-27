@@ -1,12 +1,12 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './src/components/HomeScreen';
-import LocaleScreen from './src/components/LocaleScreen';
+import KawasanScreen from './src/components/KawasanScreen';
 
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Locale: LocaleScreen,
+    Kawasan: KawasanScreen,
   },
   {
     initialRoutName: 'Home',
@@ -15,6 +15,7 @@ const RootStack = createStackNavigator(
 
 const AppContainer = createAppContainer(RootStack);
 
+/*
 export default class App extends React.Component {
   render() {
     return (
@@ -22,3 +23,10 @@ export default class App extends React.Component {
     );
   }
 }
+*/
+
+const App = () => (
+  <AppContainer />
+);
+
+export default App;

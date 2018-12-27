@@ -4,5 +4,6 @@
      "react/jsx-filename-extension": { "extensions": [".js", ".jsx"] },
      "react/jsx-one-expression-per-line": { "allow" : "literal" },
      "object-curly-newline": ["warn", { "ImportDeclaration" : "never"}],
+     "no-console": "off",
      },
 }
