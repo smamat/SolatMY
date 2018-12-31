@@ -88,7 +88,7 @@ class JakimPad extends Component {
     // - set salat times from fetched data
     const { prayerTime } = resp;
     // const { fajr, dhuhr, asr, maghrib, isha, date, hijri } = prayerTime[0];
-    const { fajr, dhuhr, asr, maghrib, isha } = prayerTime[0];
+    const { fajr, dhuhr, asr, maghrib, isha, date, hijri } = prayerTime[0];
     const times = [fajr, dhuhr, asr, maghrib, isha];
 
     console.log(times);
@@ -104,7 +104,7 @@ class JakimPad extends Component {
           />
         </View>
         <View style={{ flex: 1 }}>
-          <DatePad />
+          <DatePad date={date} hijri={hijri} />
         </View>
         <View style={{ flex: 7 }}>
           <WaktuPad />
