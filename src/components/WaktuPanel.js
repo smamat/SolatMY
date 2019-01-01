@@ -1,51 +1,99 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Swipeable from 'react-native-swipeable-row';
+import { Svg } from 'expo';
+/* eslint no-use-before-define: ["error", { "variables": false }] */
+
+const AlarmIcon = ({ isSet }) => {
+  const fillColour = isSet ? 'black' : 'gray';
+  return (
+    <Svg height={30} width={30}>
+      <Svg.Circle cx={15} cy={15} r={10} strokeWidth={2} stroke="#fff" fill={fillColour} />
+    </Svg>
+  );
+};
+
+const AzanIcon = ({ isSet }) => {
+  const fillColour = isSet ? 'green' : 'lightseagreen';
+  return (
+    <Svg height={30} width={30}>
+      <Svg.Circle cx={15} cy={15} r={10} strokeWidth={2} stroke="#fff" fill={fillColour} />
+    </Svg>
+  );
+};
 
 class WaktuPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // azan: false,
-      alarm0: false,
-      alarm10: false,
+      isAzan: false,
+      isAlarm: false,
+      isPrealarm: false,
+      leftActionActivated: false,
     };
   }
 
-  onPress0() {
-    const { alarm0 } = this.state;
+  // - not sure why this function is needed
+  onLeftActionActivate() {
+    this.setState({ leftActionActivated: true });
+    console.log(`onLeftActionActivate(): isAzan = ${this.state.isAzan}`);
+  }
 
-    // toggle alarm
-    console.log('onPress');
+  // - not sure why this function is needed
+  onLeftActionDeactivate() {
+    this.setState({ leftActionActivated: false });
+    console.log('onLeftActionDeactivate()');
+  }
+
+  onLeftActionComplete(key) {
+    this.setState(prevState => ({ isAzan: !prevState.isAzan }));
+    this.props.toggleAzan(key);
+  }
+
+  toggleAlarm(key) {
+    console.log('WaktuPanel.toggleAlarm()');
+    this.setState(prevState => ({ isAlarm: !prevState.isAlarm }));
+    this.props.toggleAlarm(key);
+  }
+
+  togglePrealarm(key) {
+    console.log('WaktuPanel.togglePrealarm()')
+    this.setState(prevState => ({ isPrealarm: !prevState.isPrealarm }));
+    this.props.togglePrealarm(key);
   }
 
   render() {
     const { waktu, time } = this.props;
-    const { alarm0, alarm10 } = this.state;
+    const { isAzan, isAlarm, isPrealarm } = this.state;
 
     return (
       <Swipeable
         leftContent={(
           <View style={styles.leftSwipeItem}>
-            <Text style={{ color: 'white' }}>Azankan</Text>
+            <AzanIcon isSet={isAzan} />
           </View>
         )}
+        onLeftActionActivate={() => this.onLeftActionActivate()}
+        onLeftActionDeactivate={() => this.onLeftActionDeactivate()}
+        onLeftActionComplete={() => this.onLeftActionComplete(waktu)}
+        leftActionActivationDistance={75}
         rightButtons={[
           <TouchableOpacity
-            onPress={this.onPress0}
-            style={[styles.rightSwipeItem, { backgroundColor: alarm0 ? 'blue' : 'red' }]}
+            onPress={() => this.toggleAlarm(waktu)}
+            style={[styles.rightSwipeItem, { backgroundColor: 'blue' }]}
           >
-            <Text>Alarm 0</Text>
+            <AlarmIcon isSet={isAlarm} />
           </TouchableOpacity>,
           <TouchableOpacity
-            onPress={this.onPress10}
-            style={[styles.rightSwipeItem, { backgroundColor: alarm10 ? 'blue' : 'red' }]}
+            onPress={() => this.togglePrealarm(waktu)}
+            style={[styles.rightSwipeItem, { backgroundColor: 'red' }]}
           >
-            <Text>Alarm 10</Text>
+            <AlarmIcon isSet={isPrealarm} />
           </TouchableOpacity>
         ]}
       >
-        <View style={styles.panelStyle}>
+        <View style={[styles.panelStyle, { backgroundColor: isAzan ? 'lightgreen' : 'white' }]}>
           <Text style={{ fontSize: 24 }}>{waktu}</Text>
           <Text style={{ fontSize: 24 }}>{time}</Text>
         </View>

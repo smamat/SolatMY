@@ -21,7 +21,7 @@ class HomeScreen extends Component {
         <View style={{ flex: 1 }}>
           <LunarPad />
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 2 }}>
           <JakimPad navigation={navigation} />
         </View>
       </View>
