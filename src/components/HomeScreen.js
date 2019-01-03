@@ -48,10 +48,14 @@ class HomeScreen extends Component {
           <LunarPad />
         </View>
         <View style={{ flex: 2 }}>
+<<<<<<< HEAD
           <JakimPad
             onPress={this.onPressKawasanPad}
             kawasan={kawasan}
           />
+=======
+          <JakimPad navigation={navigation} />
+>>>>>>> alarm
         </View>
       </View>
     );
